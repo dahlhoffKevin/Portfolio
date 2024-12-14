@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       isMenuOpen: false, // Tracks the state of the menu
-      currentLanguage: "en", // Language toggle state
+      currentLanguage: "de", // Language toggle state
     };
   },
   methods: {
