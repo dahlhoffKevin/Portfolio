@@ -13,7 +13,7 @@ export const messages = {
         desc: 'I have been developing professional web apps for 3 years now, which are used by hundreds of people every day.'
     },
     projects: {
-      title: 'Projects',
+      title: 'My Projects',
       button: 'Visit Project',
       taskitudeFrontend: {
         title: 'Taskitude Frontend',
@@ -67,7 +67,7 @@ export const messages = {
         desc: 'Seit mittlerweile 3 Jahren entwickle ich professionelle Web Apps, die täglich von hunderten von Menschen genutzt werden.'
     },
     projects: {
-      title: 'Projekte',
+      title: 'Meine Projekte',
       button: 'Zum Projekt',
       taskitudeFrontend: {
         title: 'Taskitude Frontend',

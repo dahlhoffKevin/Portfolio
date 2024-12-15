@@ -1,11 +1,13 @@
 <template>
   <div class="min-h-screen bg-gray-50 text-gray-800">
     <main class="container mx-auto p-6">
+
       <!-- Hero Section -->
       <section class="text-center py-20">
         <h2 class="text-4xl font-bold text-blue-600">{{ $t("heroTitle") }}</h2>
         <p class="text-lg text-gray-600 mt-4">{{ $t("heroSubtitle") }}</p>
       </section>
+
       <!-- About Section -->
       <section id="about" class="py-16">
         <h3 class="text-3xl font-semibold text-blue-600">
@@ -15,41 +17,39 @@
           {{ $t("about.desc") }}
         </p>
       </section>
+
       <!-- Projects Section -->
       <section id="projects" class="py-16">
         <h3 class="text-3xl font-semibold text-blue-600">
           {{ $t("projects.title") }}
         </h3>
         <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6">
-          <!-- Project Card 1 -->
-          <div
-            class="bg-white shadow-lg rounded-lg p-4 flex flex-col justify-between hover:shadow-xl"
-          >
-            <div>
-              <!-- Add consistent height and center alignment -->
+          <div v-for="(project, index) in projects">
+            <div :key="index" class="bg-white shadow-lg rounded-lg p-4 flex flex-col justify-between hover:shadow-xl">
               <div class="flex items-center justify-center h-16 mb-4">
                 <img
-                  src="/src/assets/vue.svg"
-                  alt="Project 1"
+                  :src="project.logo.logoPath"
+                  :alt="project.logo.alt"
                   class="h-full object-contain"
                 />
               </div>
               <h4 class="text-xl font-semibold">
-                {{ $t("projects.taskitudeFrontend.title") }}
+                {{ this.$t(`projects.${project.translationId}.title`) }}
               </h4>
               <p class="text-gray-600 mt-2">
-                {{ $t("projects.taskitudeFrontend.desc") }}
+                {{ this.$t(`projects.${project.translationId}.desc`) }}
               </p>
               <!-- Tags -->
-              <div class="flex flex-wrap gap-2 mt-3">
-                <div
-                  class="bg-blue-100 text-blue-600 shadow-lg rounded-md py-1 px-2 inline-block"
-                >
-                  VueJS-3
+              <div :key="index" class="flex flex-wrap gap-2 mt-3">
+                <div v-for="(tag, index) in project.tags">
+                  <div
+                    class="bg-blue-100 text-blue-600 shadow-lg rounded-md py-1 px-2 inline-block"
+                  >
+                    {{ tag }}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="mt-12">
+              <div class="mt-12">
               <button
                 target="_blank"
                 class="bg-blue-600 text-white px-4 py-2 rounded inline-block hover:bg-blue-700 hover:scale-105"
@@ -58,66 +58,11 @@
                 {{ $t("projects.button") }}
               </button>
             </div>
-          </div>
-          <!-- Project Card 2 -->
-          <div
-            class="bg-white shadow-lg rounded-lg p-4 flex flex-col justify-between hover:shadow-xl"
-          >
-            <div>
-              <!-- Add consistent height and center alignment -->
-              <div class="flex items-center justify-center h-16 mb-4">
-                <img
-                  src="/src/assets/spring.svg"
-                  alt="Project 2"
-                  class="h-full object-contain"
-                />
-              </div>
-              <h4 class="text-xl font-semibold">
-                {{ $t("projects.taskitudeBackend.title") }}
-              </h4>
-              <p class="text-gray-600 mt-2">
-                {{ $t("projects.taskitudeBackend.desc") }}
-              </p>
-              <!-- Tags -->
-              <div class="flex flex-wrap gap-2 mt-3">
-                <div
-                  class="bg-blue-100 text-blue-600 shadow-lg rounded-md py-1 px-2 inline-block"
-                >
-                  Java
-                </div>
-                <div
-                  class="bg-blue-100 text-blue-600 shadow-lg rounded-md py-1 px-2 inline-block"
-                >
-                  Spring-Boot
-                </div>
-                <div
-                  class="bg-blue-100 text-blue-600 shadow-lg rounded-md py-1 px-2 inline-block"
-                >
-                  Spring-Security
-                </div>
-                <div
-                  class="bg-blue-100 text-blue-600 shadow-lg rounded-md py-1 px-2 inline-block"
-                >
-                  MySQL
-                </div>
-              </div>
-            </div>
-            <div class="mt-12">
-              <button
-                target="_blank"
-                class="bg-blue-600 text-white px-4 py-2 rounded inline-block hover:bg-blue-700 hover:scale-105"
-              >
-                {{ $t("projects.button") }}
-              </button>
             </div>
           </div>
-          <!-- <div class="bg-white shadow-lg rounded-lg p-4">
-            <img src="https://via.placeholder.com/400" alt="Project 3" class="rounded-lg mb-4">
-            <h4 class="text-xl font-semibold">Project 3</h4>
-            <p class="text-gray-600 mt-2">Description of project 3.</p>
-          </div> -->
         </div>
       </section>
+
       <!-- Skills Section -->
       <section id="skills" class="py-16">
         <h3 class="text-3xl font-semibold text-blue-600">
@@ -189,6 +134,7 @@
           </div>
         </div>
       </section>
+
       <!-- Contact Section -->
       <section id="contact" class="py-16">
         <h3 class="text-3xl font-semibold">{{ $t("contact.title") }}</h3>
@@ -214,61 +160,23 @@
           </button>
         </form>
       </section>
+
     </main>
   </div>
 </template>
 <script>
+import { projects } from '../assets/projects.js';
+
 export default {
-  name: "AppBody",
+  name: 'AppBody',
   data() {
     return {
-      projects: {
-        taskitudeFontend: {
-          logo: {
-            logoPath: "/src/assets/vue.svg",
-            alt: "Vue Logo",
-          },
-          tags: [
-            "VueJS-3",
-            "Vue-Store",
-            "Vue-Router",
-            "JavaScript",
-            "HTML",
-            "CSS",
-          ],
-          projectRoute: "vueFrontend",
-        },
-        taskitudeBackend: {
-          logo: {
-            logoPath: "/src/assets/vue.svg",
-            alt: "Vue Logo",
-          },
-          tags: ["Java", "Spring-Boot", "Spring-Security", "MySQL"],
-          projectRoute: "vueBackend",
-        },
-      },
+        projects
     };
-  },
-  computed: {
-    translatedTaskitudeFrontend() {
-      return {
-        ...this.projects.taskitudeFontend,
-        title: this.$t("projects.taskitudeFrontend.title"),
-        desc: this.$t("projects.taskitudeFrontend.desc"),
-      };
-    },
-    translatedTaskitudeBackend() {
-      return {
-        ...this.projects.taskitudeBackend,
-        title: this.$t("projects.taskitudeBackend.title"),
-        desc: this.$t("projects.taskitudeBackend.desc"),
-      };
-    },
   },
   methods: {
     routeToProject(routeName) {
-        console.log(this.projects.taskitudeFontend);
-    //   this.$router.push({ name: routeName });
+      this.$router.push({ name: routeName });
     },
   },
 };
