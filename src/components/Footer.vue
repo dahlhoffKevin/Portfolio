@@ -5,8 +5,8 @@
       <div>
         <p class="text-lg font-semibold">{{ $t("contact.title") }}</p>
         <p> 
-          <a href="mailto:kontakt@kevindahlhoff.de" class="text-blue-400 hover:underline">
-            kontakt@kevindahlhoff.de
+          <a href="mailto:contact@kevindahlhoff.de" class="text-blue-400 hover:underline">
+            contact@kevindahlhoff.de
           </a>
         </p>
       </div>
