@@ -1,7 +1,9 @@
 <template>
-    <div class="min-h-screen bg-white text-gray-800"> 
+    <div class="min-h-screen bg-gray-50 text-gray-800"> 
       <!-- Project Details -->
       <main class="container mx-auto p-6">
+
+        <!-- Project Head Section -->
         <section class="py-12">
           <h2 class="text-4xl font-bold text-gray-900">{{ project.title }}</h2>
           <p class="text-lg text-gray-600 mt-4">{{ project.description }}</p>
@@ -43,11 +45,11 @@
   </template>
   
   <script>
-  import Header from './Header.vue';
-  import Footer from './Footer.vue';
+  import Header from '../Header.vue';
+  import Footer from '../Footer.vue';
 
   export default {
-    name: 'ProjectVueFrontend',
+    name: 'ProjectVueBackend',
     components: {
       Header,
       Footer

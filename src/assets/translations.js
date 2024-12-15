@@ -17,7 +17,8 @@ export const messages = {
       button: 'Visit Project',
       taskitudeFrontend: {
         title: 'Taskitude Frontend',
-        desc: 'Taskitude is an application for managing todos with associated sub-todos.'
+        desc: 'Taskitude is an application for managing todos with associated sub-todos.',
+        detailedDesc: 'Taskitude is a web application for managing todos. The application also allows you to add subtodos to a todo. In addition, the app can be used by hundreds, if not thousands, of users at the same time. Tasktitude relies on a VueJS frontend and a Java Springboot backend.'
       },
       taskitudeBackend: {
         title: 'Taskitude Backend',
@@ -71,7 +72,8 @@ export const messages = {
       button: 'Zum Projekt',
       taskitudeFrontend: {
         title: 'Taskitude Frontend',
-        desc: 'Taskitude ist eine Anwendung zur Verwaltung von Todos mit zugehörigen Sub-Todos.'
+        desc: 'Taskitude ist eine Anwendung zur Verwaltung von Todos mit zugehörigen Sub-Todos.',
+        detailedDesc: 'Taskitude ist eine Web Anwendung zur Verwaltung von Todos. Die Anwendung bietet außerdem das hinzufügen von Subtodos zu einem Todo. Außerdem kann die App von hunderten, wenn nicht tausenden, Nutzern gleichzeitig verwendet werden. Tasktitude setzt auf ein VueJS Frontend und ein Java Springboot Backend.'
       },
       taskitudeBackend: {
         title: 'Taskitude Backend',

@@ -43,6 +43,7 @@
               <div :key="index" class="flex flex-wrap gap-2 mt-3">
                 <div v-for="(tag, index) in project.tags">
                   <div
+                    :key="index"
                     class="bg-blue-100 text-blue-600 shadow-lg rounded-md py-1 px-2 inline-block"
                   >
                     {{ tag }}
@@ -53,7 +54,7 @@
               <button
                 target="_blank"
                 class="bg-blue-600 text-white px-4 py-2 rounded inline-block hover:bg-blue-700 hover:scale-105"
-                @click="routeToProject('vueFrontend')"
+                @click="routeToProject(project.projectRoute)"
               >
                 {{ $t("projects.button") }}
               </button>
@@ -136,7 +137,7 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-16">
+      <!-- <section id="contact" class="py-16">
         <h3 class="text-3xl font-semibold">{{ $t("contact.title") }}</h3>
         <form class="grid gap-6 grid-cols-1 sm:grid-cols-2 mt-6">
           <input
@@ -159,7 +160,7 @@
             {{ $t("contact.button") }}
           </button>
         </form>
-      </section>
+      </section> -->
 
     </main>
   </div>

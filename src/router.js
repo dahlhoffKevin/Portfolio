@@ -1,10 +1,12 @@
 import { createMemoryHistory, createRouter } from 'vue-router';
 import AppBody from './components/AppBody.vue';
-import ProjectVueFrontend from './components/ProjectVueFrontend.vue';
+import ProjectVueFrontend from './components/projects/ProjectVueFrontend.vue';
+import ProjectVueBackend from './components/projects/ProjectVueBackend.vue';
 
 const routes = [
     { path: '/', component: AppBody, name: 'home' },
-    { path: '/vueFrontend', component: ProjectVueFrontend, name: 'vueFrontend' }
+    { path: '/projectVueFrontend', component: ProjectVueFrontend, name: 'projectVueFrontend' },
+    { path: '/projectVueBackend', component: ProjectVueBackend, name: 'projectVueBackend' }
 ]
 
 const router = createRouter({

@@ -223,7 +223,7 @@ export default {
   data() {
     return {
       projects: {
-        taskitudeFontend: {
+        taskitudeFrontend: {
           logo: {
             logoPath: "/src/assets/vue.svg",
             alt: "Vue Logo",
@@ -252,7 +252,7 @@ export default {
   computed: {
     translatedTaskitudeFrontend() {
       return {
-        ...this.projects.taskitudeFontend,
+        ...this.projects.taskitudeFrontend,
         title: this.$t("projects.taskitudeFrontend.title"),
         desc: this.$t("projects.taskitudeFrontend.desc"),
       };
@@ -267,7 +267,7 @@ export default {
   },
   methods: {
     routeToProject(routeName) {
-        console.log(this.projects.taskitudeFontend);
+        console.log(this.projects.taskitudeFrontend);
     //   this.$router.push({ name: routeName });
     },
   },
