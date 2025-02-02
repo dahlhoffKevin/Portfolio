@@ -61,28 +61,33 @@
 
 <script>
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
       isMenuOpen: false, // Tracks the state of the menu
-      currentLanguage: "de", // Language toggle state
+      currentLanguage: 'de', // Language toggle state
     };
   },
+  // onMount() {
+  //   console.log(this.$route.fullPath);
+  //   if (this.$route.fullPath == '/admin') {
+  //     return;
+  //   }
+  // },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
     toggleLanguage() {
-      this.currentLanguage = this.currentLanguage === "en" ? "de" : "en";
+      this.currentLanguage = this.currentLanguage === 'en' ? 'de' : 'en';
       this.$i18n.locale = this.currentLanguage;
     },
     scrollToSection(sectionId) {
-      console.log(this.$route.fullPath)
       const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
+          behavior: 'smooth',
+          block: 'start',
         });
       }
       // Close the menu after clicking on a section link

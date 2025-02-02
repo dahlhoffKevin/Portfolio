@@ -51,13 +51,13 @@
                 </div>
               </div>
               <div class="mt-12">
-              <button
+              <!-- <button
                 target="_blank"
                 class="bg-blue-600 text-white px-4 py-2 rounded inline-block hover:bg-blue-700 hover:scale-105"
                 @click="routeToProject(project.projectRoute)"
               >
                 {{ $t("projects.button") }}
-              </button>
+              </button> -->
             </div>
             </div>
           </div>

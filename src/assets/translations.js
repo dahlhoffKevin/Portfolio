@@ -1,3 +1,12 @@
+/**
+ * Load translations into local storage
+ */
+function initTranslation() {
+  //check if translation object is already in local storage
+  
+  //load translation into localStorage
+}
+
 export const messages = {
   en: {
     header: {
