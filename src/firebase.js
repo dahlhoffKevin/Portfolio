@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getFirestore, collection } from 'firebase/firestore';
+import { getFirestore, doc, query, where, getDocs } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey : import.meta.env.VITE_FIREBASE_API_KEY,
@@ -26,6 +26,15 @@ function getCurrentUser() {
   });
 }
 
-export const projectsRef = collection(db, 'projects');
+export async function getProjectCountByTag(pRef, tagId) {
+  // Erstelle eine Dokument-Referenz für den Tag
+  const tagRef = doc(pRef.firestore, 'tags', tagId);
+
+  // Abfrage: Suche nach Projekten, die diese Tag-Referenz im 'tags'-Array enthalten
+  const q = query(pRef, where('tags', 'array-contains', tagRef));
+
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.size;
+}
 
 export { firebaseApp, auth, db, getCurrentUser };

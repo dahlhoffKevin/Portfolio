@@ -4,7 +4,7 @@ import AppBody from './components/AppBody.vue';
 import ProjectVueFrontend from './components/projects/ProjectVueFrontend.vue';
 import ProjectVueBackend from './components/projects/ProjectVueBackend.vue';
 import AdminUI from './components/adminUI/AdminUI.vue';
-import AdminLogin from './components/adminUI/AdminLogin.vue';
+import AdminLogin from './components/adminUI/components/AdminLogin/AdminLogin.vue';
 
 const routes = [
   { path: '/', component: AppBody, name: 'home' },

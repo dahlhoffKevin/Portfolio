@@ -1,7 +1,7 @@
 <script>
-import { auth, db } from '../../firebase';
+import { db } from '../../../../firebase';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
-import adminProjectList from './AdminProjectList.vue';
+import AdminProjectList from './AdminProjectList.vue';
 import { ref, provide, onMounted } from 'vue';
 
 //https://primevue.org/skeleton/
@@ -24,7 +24,7 @@ export default {
     };
   },
   components: {
-    adminProjectList,
+    AdminProjectList,
   },
   setup() {
     const projects = ref([]);
@@ -45,10 +45,6 @@ export default {
     return { projects, addProjectToList };
   },
   methods: {
-    async logout() {
-      await signOut(auth);
-      this.$router.push({ name: 'home' });
-    },
     showErrorWithTimeout(message) {
       this.errorMessage = message;
       this.showError = true;
@@ -58,12 +54,12 @@ export default {
     },
     async addProject() {
       if (!this.uploadedFile) {
-        this.showErrorWithTimeout('Please upload an SVG file.');
+        this.showErrorWithTimeout('Please upload a thumbnail. Allowed formats .svg, .png, .jpg');
         return;
       }
 
-      const projectsRef = collection(db, 'projects');
       try {
+        const projectsRef = collection(db, 'projects');
         const docRef = await addDoc(projectsRef, {
           title: this.projectName,
           titleTranslation: this.projectNameTranslation,
@@ -126,7 +122,6 @@ export default {
     },
   },
 }
-
 </script>
 <template>
   <div
@@ -202,7 +197,7 @@ export default {
         </div>
 
         <div class="w-full p-2">
-          <label class="block mb-2">Upload SVG File</label>
+          <label class="block mb-2">Upload a Thumbnail</label>
           <div
             class="border-dashed border-2 border-gray-300 p-6 rounded-lg text-center cursor-pointer"
             :class="{ 'bg-gray-100': isDragging }"
@@ -220,7 +215,7 @@ export default {
             <input
               ref="fileInput"
               type="file"
-              accept=".svg"
+              accept=".svg,.png,.jpg"
               class="hidden"
               @change="handleFileUpload"
             />
@@ -261,6 +256,6 @@ export default {
     </header>
 
     <!-- Project List -->
-    <adminProjectList />
+    <AdminProjectList />
   </div>
 </template>

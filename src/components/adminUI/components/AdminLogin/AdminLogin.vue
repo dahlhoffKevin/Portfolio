@@ -59,7 +59,7 @@
 
 <script>
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase';
+import { auth } from '../../../../firebase';
 
 export default {
   name: 'adminLoginUI',

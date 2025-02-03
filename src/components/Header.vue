@@ -2,7 +2,10 @@
   <header class="bg-white shadow">
     <nav class="container mx-auto flex justify-between items-center py-4 px-6">
       <!-- Logo -->
-      <button @click="routeToHome()"><h1 class="text-xl font-semibold text-blue-600">Kevin Dahlhoff</h1></button>
+      <button @click="routeToHome()">
+        <h1 class="text-xl font-semibold text-blue-600">Kevin Dahlhoff</h1>
+        <h2 class="text-m font-semibold text-gray-600">Software Entwickler</h2>
+      </button>
 
       <!-- Burger Menu Button for Small Screens -->
       <div class="sm:hidden">
@@ -17,10 +20,10 @@
       <!-- Main Menu for Large Screens -->
       <div class="hidden sm:flex items-center space-x-6">
         <ul class="flex space-x-6">
-          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('about')" class="hover:text-blue-600">{{ $t('header.about') }}</button></li>
-          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('projects')" class="hover:text-blue-600">{{ $t('header.projects') }}</button></li>
-          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('skills')" class="hover:text-blue-600">{{ $t('header.skills') }}</button></li>
-          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('contact')" class="hover:text-blue-600">{{ $t('header.contact') }}</button></li>
+          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('about')" class="text-gray-600 hover:text-blue-600">{{ $t('header.about') }}</button></li>
+          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('projects')" class="text-gray-600 hover:text-blue-600">{{ $t('header.projects') }}</button></li>
+          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('skills')" class="text-gray-600 hover:text-blue-600">{{ $t('header.skills') }}</button></li>
+          <li v-if="$route.fullPath == '/'"><button @click="scrollToSection('contact')" class="text-gray-600 hover:text-blue-600">{{ $t('header.contact') }}</button></li>
         </ul>
         <button @click="toggleLanguage" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
           {{ currentLanguage === 'en' ? '🇩🇪' : '🇬🇧' }}
@@ -68,12 +71,6 @@ export default {
       currentLanguage: 'de', // Language toggle state
     };
   },
-  // onMount() {
-  //   console.log(this.$route.fullPath);
-  //   if (this.$route.fullPath == '/admin') {
-  //     return;
-  //   }
-  // },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;

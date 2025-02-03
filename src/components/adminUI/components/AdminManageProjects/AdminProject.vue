@@ -1,5 +1,5 @@
 <script>
-import { db } from '../../firebase';
+import { db } from '../../../../firebase';
 import { doc, deleteDoc, updateDoc } from 'firebase/firestore';
 
 export default {
@@ -103,7 +103,7 @@ export default {
 
 <template>
   <div class="bg-white shadow-lg rounded-lg p-4 flex flex-col justify-between">
-    <img v-bind:src="data.thumbnail" alt="test">
+    <img v-bind:src="data.thumbnail" alt="project thumbnail">
     <h3 class="text-lg font-semibold text-gray-800">{{ data.title }}</h3>
     <p class="text-gray-600 mt-2 text-sm">{{ data.description }}</p>
     <div class="mt-4 flex justify-between">

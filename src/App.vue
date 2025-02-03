@@ -1,7 +1,7 @@
 <template>
-  <div v-if="!$route.fullPath.startsWith('/admin')"><Header/></div>
+  <Header v-show="!$route.fullPath.startsWith('/admin')"/>
   <RouterView/>
-  <div v-if="!$route.fullPath.startsWith('/admin')"><Footer/></div>
+  <Footer v-show="!$route.fullPath.startsWith('/admin')"/>
 </template>
 
 <script>
