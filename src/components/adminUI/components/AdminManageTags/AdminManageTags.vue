@@ -46,7 +46,8 @@ export default {
         const newTag = {
           id: docRef.id,
           data: {
-            name: this.tagName
+            name: this.tagName,
+            projectCount: 0
           }
         };
 
