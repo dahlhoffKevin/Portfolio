@@ -65,9 +65,6 @@ export default {
       }
 
       const batch = writeBatch(db);
-      const tagsRef = collection(db, 'tags');
-      // const tagRef = doc(tagsRef.firestore, 'tags', this.id);
-
       projectsQuerySnapshot.forEach((projetcsDoc) => {
         const projectRef = doc(db, 'projects', projetcsDoc.id);
         const updatedTags = projetcsDoc.data().tags.filter(tagRef => tagRef.id !== this.id);
