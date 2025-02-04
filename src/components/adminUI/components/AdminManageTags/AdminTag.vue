@@ -1,12 +1,12 @@
 <script>
 import { db } from '../../../../firebase';
-import { collection, getDocs, where, writeBatch, doc, query, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, where, writeBatch, doc, query, deleteDoc, updateDoc } from 'firebase/firestore';
 
 export default {
   name: 'AdminTag',
   data() {
     return {
-        isEditing: false
+      isEditing: false
     }
   },
   inject: ['tags'],
@@ -22,10 +22,19 @@ export default {
   },
   methods: {
     updateTag() {
-      const updatedTagName = document.getElementById('input_' + this.id).value;
-      if (this.data.name == updatedTagName) return;
+      const index = this.tags.findIndex((t) => t.id === this.id);
+      if (index !== -1) {
+        this.tags[index].data.name = this.data.name;
+      }
 
-      //TODO: Update Tag
+      try {
+        const tagsRef = doc(db, 'tags', this.id);
+        updateDoc(tagsRef, { id: this.id, name: this.data.name });
+      } catch (error) {
+        console.error(error);
+      }
+
+      this.isEditing = false;
     },
     async deleteTag() {
       //delete tag referenz in projects first
